@@ -10,9 +10,10 @@ public class PsycheMovement : MonoBehaviour
     public Vector2 direction;
     public Vector3 mousePosition;
     public Animator animator;
-    
+    public Joystick joystick;
+
     //speeds for run/walk
-	
+
     private float moveSpeed;
 	private float defaultWalkSpeed = 6f;
     private float defaultRunSpeed = 15f;
@@ -33,61 +34,97 @@ public class PsycheMovement : MonoBehaviour
     private void Start()
     {
 		rb = this.GetComponent<Rigidbody2D>();
+        // set default speeds
+        walkSpeed = defaultWalkSpeed;
+        runSpeed = defaultRunSpeed;
     }
 
     // Update is called once per frame
     private void Update()
     {
-		BoundaryClamping();
-		float verticalPos = Input.GetAxis("Vertical");
-		float horizontalPos = Input.GetAxis("Horizontal");
-		
-		// hold shift to walk
-		if (Input.GetKey(KeyCode.LeftShift))
-		{
-			moveSpeed = walkSpeed;
-		} 
-		else 
-		{
-			moveSpeed = runSpeed;
-		}
+        //BoundaryClamping();
+        //float verticalPos = Input.GetAxis("Vertical");
+        //float horizontalPos = Input.GetAxis("Horizontal");
 
-		// movementPowerUp
-		if(movementPowerUP > 0)
-		{
-			walkSpeed = defaultWalkSpeed * 0.1f;
-			runSpeed = defaultRunSpeed * 0.1f;
-		}
-		else
-		{
-			walkSpeed = defaultWalkSpeed;
-			runSpeed = defaultRunSpeed;
-		}
+        // hold shift to walk
+        //      if (Input.GetKey(KeyCode.LeftShift))
+        //{
+        //	moveSpeed = walkSpeed;
+        //} 
+        //else 
+        //{
+        //	moveSpeed = runSpeed;
+        //}
 
-		movementPowerUpTimer += Time.deltaTime;
-		if(movementPowerUpTimer >= 1)
-		{
-			movementPowerUP--;
-			movementPowerUpTimer = 0;
-		}
-		
-		movement = new Vector2(horizontalPos,verticalPos) * moveSpeed;
-		oldPosition = transform.position;
+        //// movementPowerUp
+        //if(movementPowerUP > 0)
+        //{
+        //	walkSpeed = defaultWalkSpeed * 0.1f;
+        //	runSpeed = defaultRunSpeed * 0.1f;
+        //}
+        //else
+        //{
+        //	walkSpeed = defaultWalkSpeed;
+        //	runSpeed = defaultRunSpeed;
+        //}
+
+        //movementPowerUpTimer += Time.deltaTime;
+        //if(movementPowerUpTimer >= 1)
+        //{
+        //	movementPowerUP--;
+        //	movementPowerUpTimer = 0;
+        //}
+
+        //movement = new Vector2(horizontalPos,verticalPos) * moveSpeed;
+        //oldPosition = transform.position;
+
+        BoundaryClamping();
+
+        // Choose walk or run speed
+        //if (Input.GetKey(KeyCode.LeftShift))  // Optional for testing on PC
+        //    moveSpeed = walkSpeed;
+        //else
+        moveSpeed = runSpeed;
+
+        // Power Up Speed Logic
+        if (movementPowerUP > 0)
+        {
+            walkSpeed = defaultWalkSpeed * 0.1f;
+            runSpeed = defaultRunSpeed * 0.1f;
+        }
+        else
+        {
+            walkSpeed = defaultWalkSpeed;
+            runSpeed = defaultRunSpeed;
+        }
+
+        movementPowerUpTimer += Time.deltaTime;
+        if (movementPowerUpTimer >= 1)
+        {
+            movementPowerUP--;
+            movementPowerUpTimer = 0;
+        }
+
+        // Joystic movement input
+        movement = joystick.Direction * moveSpeed;
     }
     
     // FixedUpdate is called every physics detection step  
     private void FixedUpdate()
     {
-		if((Input.GetKey(KeyCode.W) ||
-			Input.GetKey(KeyCode.A) ||
-			Input.GetKey(KeyCode.S) ||
-			Input.GetKey(KeyCode.D) ||
-			Input.GetKey(KeyCode.UpArrow) ||
-			Input.GetKey(KeyCode.LeftArrow) ||
-			Input.GetKey(KeyCode.DownArrow) ||
-			Input.GetKey(KeyCode.RightArrow)
-			))
-			MovePsyche(movement);
+        //if((Input.GetKey(KeyCode.W) ||
+        //	Input.GetKey(KeyCode.A) ||
+        //	Input.GetKey(KeyCode.S) ||
+        //	Input.GetKey(KeyCode.D) ||
+        //	Input.GetKey(KeyCode.UpArrow) ||
+        //	Input.GetKey(KeyCode.LeftArrow) ||
+        //	Input.GetKey(KeyCode.DownArrow) ||
+        //	Input.GetKey(KeyCode.RightArrow)
+        //	))
+        //	MovePsyche(movement);
+
+        // Move based on joystick
+        MovePsyche(movement);
     }
     
    // Constrains Psyche prefab to screen boundaries 
@@ -125,6 +162,6 @@ public class PsycheMovement : MonoBehaviour
         	GameObject.Find("Health").GetComponent<HealthUI>().health--;
             rb.MovePosition(rb.transform.position - new Vector3(0, 0.5f, 0));
 			Debug.Log("Hit by asteroid");
-	    }
+        }
     }
 }
