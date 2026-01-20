@@ -9,6 +9,14 @@ public class Joystick : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
 
     public Vector2 Direction { get; private set; }
 
+#if UNITY_EDITOR
+public void SetDirectionForTest(Vector2 dir)
+{
+    Direction = dir;
+}
+#endif
+
+
     private void Start()
     {
         Direction = Vector2.zero;

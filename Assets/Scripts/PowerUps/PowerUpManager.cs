@@ -33,9 +33,22 @@ public class PowerUpManager : MonoBehaviour
         item = Random.Range(0, 3);
         if (item != 0)
             item = Random.Range(1, 3);
-        
-        Instantiate(powerUpList[item], 
-            spawnLocations[Random.Range(0, spawnLocations.Length)]);
+
+        //Instantiate(powerUpList[item], 
+        //    spawnLocations[Random.Range(0, spawnLocations.Length)]);
+        //Instantiate( powerUpList[item], spawnLocations[Random.Range(0, spawnLocations.Length)].position, Quaternion.identity);
+
+        float x = Random.Range(
+-Camera.main.orthographicSize * Camera.main.aspect,
+     Camera.main.orthographicSize * Camera.main.aspect);
+
+        float y = Random.Range(
+            -Camera.main.orthographicSize,
+             Camera.main.orthographicSize);
+
+        Instantiate(powerUpList[item], new Vector3(x, y, 0), Quaternion.identity);
+
+
         SoundManager.instance.PlaySound("PowerUp");
     }
 }
