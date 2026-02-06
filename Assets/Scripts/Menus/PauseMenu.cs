@@ -31,6 +31,15 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void PauseToggle()
+    {
+        health = GameObject.Find("Health").GetComponent<HealthUI>().health;
+
+        if (!inPauseMenu && health > 0)
+            PauseGame();
+        else ResumeGame();
+    }
+
     // Resumes game after paused
     public void ResumeGame()
     {
