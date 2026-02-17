@@ -1526,14 +1526,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triviaBank:
-  - question: When does Psyche launch?
+  - question: When did the Psyche spacecraft launch?
     choices:
-    - 2022
-    - 2025
-    - 2023
-    - 2026
+    - On Oct. 13, 2023
+    - On Aug. 10, 2025
+    - On April 1, 2023
+    - On Jan 1, 2026
     correctChoice: 1
-  - question: How long is a day on Psyche?
+  - question: How long is a day on the Psyche asteroid?
     choices:
     - About 24 hours
     - About 13 hours
@@ -1543,7 +1543,7 @@ MonoBehaviour:
   - question: Who is the Psyche asteroid named after?
     choices:
     - A psychic
-    - A  greek goddess
+    - A Greek goddess
     - A scientist
     - An astronaut
     correctChoice: 2
@@ -1554,40 +1554,40 @@ MonoBehaviour:
     - March 7, 1958
     - March 17, 1852
     correctChoice: 4
-  - question: When will the spacecraft arrive on Psyche?
+  - question: When will the spacecraft arrive at Psyche?
     choices:
-    - Early 2026
-    - Late 2023
-    - Fall 2021
-    - Yesterday
+    - August 2029
+    - February 2028
+    - December 2026
+    - January 2030
     correctChoice: 1
-  - question: Approximately what is the radius of Psyche?
+  - question: Approximately what is the radius of Psyche (if it were a perfect sphere)?
     choices:
     - 68 miles
     - 70 miles
     - 225 miles
     - 132 miles
     correctChoice: 2
-  - question: How long would it take for the Psyche asteroid to go around the sun?
+  - question: How long does it take for the Psyche asteroid to go around the sun?
     choices:
-    - About 6 months
-    - About 2 years
-    - About 5 years
-    - About 14 years
+    - About 6 Earth months
+    - About 2 Earth years
+    - About 5 Earth years
+    - About 14 Earth years
     correctChoice: 3
-  - question: What materials are believed to make up a majority of Psyche?
+  - question: What materials are believed to make up a majority of the Psyche asteroid?
     choices:
     - Iron and water
-    - Rock and  metal
+    - Rock and metal
     - Candy and butter
     - Rock and ice
     correctChoice: 2
   - question: 'Who discovered the Psyche asteroid? '
     choices:
-    - Galileo Galilei
-    - Henrietta Swan Leavitt
-    - Annibale de Gasparis
-    - Paul Blart
+    - Italian astronomer Galileo Galilei
+    - American astronomer Henrietta Swan Leavitt
+    - Italian astronomer Annibale de Gasparis
+    - Polish astronomer Nicolaus Copernicus
     correctChoice: 3
   - question: Who is the Principal Investigator of the Psyche mission?
     choices:
@@ -1596,19 +1596,20 @@ MonoBehaviour:
     - Neil Breen
     - Dr. Mansour Javidan
     correctChoice: 1
-  - question: How long will the spacecraft be mapping Psyche?
+  - question: What is the mapping duration of the spacecraft during its primary mission
+      at Psyche?
     choices:
-    - 12 months
-    - 8 months
-    - 24 months
-    - 21 months
+    - About 12 months
+    - About 8 months
+    - About 26 months
+    - About 21 months
     correctChoice: 3
   - question: What makes the Psyche mission special?
     choices:
-    - The first mission to an asteroid
-    - The first mission to a world of rock and metal
-    - The first mission to build a colony
-    - The last mission to a planet
+    - The first time we are travelling to an asteroid.
+    - The first time we are sending a spacecraft to study a metallic (M-type) asteroid.
+    - It is the first mission to build a colony on an asteroid.
+    - It is the last mission to a planet.
     correctChoice: 2
   choiceButtons:
   - {fileID: 7786965}
