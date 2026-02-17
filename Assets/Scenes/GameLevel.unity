@@ -430,9 +430,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 279162295}
+      - m_Target: {fileID: 792729693}
         m_TargetAssemblyTypeName: AudioHapticsManager, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: LightTap
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1645,6 +1645,7 @@ GameObject:
   - component: {fileID: 792729690}
   - component: {fileID: 792729689}
   - component: {fileID: 792729692}
+  - component: {fileID: 792729693}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1708,6 +1709,18 @@ MonoBehaviour:
   musicStopped: 0
   pausePanel: {fileID: 1923502729}
   triviaPanel: {fileID: 24171181}
+--- !u!114 &792729693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792729688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6283914af716d94b94ee114c731b604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioHapticsManager
 --- !u!1 &806874222
 GameObject:
   m_ObjectHideFlags: 0
