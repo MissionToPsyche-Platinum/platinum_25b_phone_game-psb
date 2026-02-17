@@ -430,8 +430,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1923502729}
-        m_TargetAssemblyTypeName: 
+      - m_Target: {fileID: 279162295}
+        m_TargetAssemblyTypeName: AudioHapticsManager, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
         m_Arguments:
