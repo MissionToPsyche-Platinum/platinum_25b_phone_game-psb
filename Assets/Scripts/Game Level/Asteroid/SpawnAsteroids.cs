@@ -15,7 +15,7 @@ public class SpawnAsteroids : MonoBehaviour
     private float speedBoost = 0f;
     //private float w = Screen.width;
     //private float h = Screen.height;
-    
+
 
     public float leftSide;
     public float rightSide;

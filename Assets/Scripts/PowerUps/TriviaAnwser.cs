@@ -12,9 +12,11 @@ public class TriviaAnwser : MonoBehaviour
 {
     public bool isCorrect = false;
     public GameObject correctChoice;
-    
+
     public void CheckAnswer()
     {
+        AudioHapticsManager.Instance.LightTap(); // use haptic feedback when answer is selected
+
         if (isCorrect)
         {
             SoundManager.instance.PlaySound("CorrectSound");
