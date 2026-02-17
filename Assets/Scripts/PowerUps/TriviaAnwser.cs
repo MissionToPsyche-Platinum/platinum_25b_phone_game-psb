@@ -26,7 +26,8 @@ public class TriviaAnwser : MonoBehaviour
         }
         else
         {
-            SoundManager.instance.PlaySound("IncorrectSound");	
+            SoundManager.instance.PlaySound("IncorrectSound");
+            GetComponent<Image>().color = new Color(1f, 0.7f, 0.7f); ; // turn red if incorrect
         } 
         
         // gets the button that has the correct answer and turns it green for

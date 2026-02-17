@@ -44,7 +44,8 @@ public class TriviaManager: MonoBehaviour
         for (int button = 0; button < choiceButtons.Length; button++)
         {
             choiceButtons[button].GetComponent<Button>().interactable = true;
-	        string choiceText = triviaBank[currentQuestion].choices[button];
+            choiceButtons[button].GetComponent<Image>().color = Color.white; // reset color
+            string choiceText = triviaBank[currentQuestion].choices[button];
             choiceButtons[button].GetComponentInChildren<TextMeshProUGUI>().text = choiceText;
             
             // Note that the correct options go from 1 to 4 due to how buttons work.
@@ -54,7 +55,7 @@ public class TriviaManager: MonoBehaviour
 				choiceButtons[button].GetComponent<TriviaAnwser>().isCorrect = true;
 			} else {
 				choiceButtons[button].GetComponent<TriviaAnwser>().isCorrect = false;
-			}
+            }
 
         }
     }
