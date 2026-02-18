@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void PauseToggle()
+    public void PauseToggle() //UPDATED
     {
         health = GameObject.Find("Health").GetComponent<HealthUI>().health;
 
@@ -44,10 +44,8 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
 		//triviaPanel = GameObject.Find("Trivia Panel");
-        if(ReferenceEquals(triviaPanel, null))
-        {
+        //UPDATED
             Time.timeScale = 1f;
-        }
         pausePanel.SetActive(false);
         inPauseMenu = false;
     }
