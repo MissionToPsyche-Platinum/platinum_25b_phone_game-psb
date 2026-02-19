@@ -4,6 +4,8 @@ public class GameLevels : MonoBehaviour
 {
     public static GameLevels Instance { get; private set; }
 
+    private GameObject levelsPanel;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -48,5 +50,11 @@ public class GameLevels : MonoBehaviour
                 break;
             default: return 15f;
         }
+    }
+
+    public void HidePanel()
+    {
+        levelsPanel = GameObject.Find("Levels Panel");
+        levelsPanel.SetActive(false);
     }
 }
