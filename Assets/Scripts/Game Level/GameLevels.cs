@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLevels : MonoBehaviour
 {
@@ -52,9 +53,8 @@ public class GameLevels : MonoBehaviour
         }
     }
 
-    public void HidePanel()
+    public void StartGame()
     {
-        levelsPanel = GameObject.Find("Levels Panel");
-        levelsPanel.SetActive(false);
+        SceneManager.LoadScene("GameLevel");
     }
 }

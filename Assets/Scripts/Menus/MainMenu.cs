@@ -9,7 +9,8 @@ public class MainMenu : MonoBehaviour
     public void PlayGame ()
     {
         AudioHapticsManager.Instance.LightTap(); // use haptic feedback
-        SceneManager.LoadScene("GameLevel");
+        //SceneManager.LoadScene("GameLevel");
+        SceneManager.LoadScene("GameSettings");
         GameObject.Find("SoundManager").GetComponent<SoundManager>().PlaySound("PowerUp");
     }
     
