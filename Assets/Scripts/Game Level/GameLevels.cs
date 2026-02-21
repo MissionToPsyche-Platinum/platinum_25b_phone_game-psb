@@ -44,6 +44,30 @@ public class GameLevels : MonoBehaviour
         }
     }
 
+    // Returns asteroid min speed corresponding to level chosen by user.
+    public float GetAsteroidMinSpeed()
+    {
+        switch (level)
+        {
+            case "beginner": return 0.1f;
+            case "intermediate": return 0.1f;
+            case "advanced": return 0.1f;
+            default: return 0.1f;
+        }
+    }
+
+    // Returns asteroid max speed corresponding to level chosen by user.
+    public float GetAsteroidMaxSpeed()
+    {
+        switch (level)
+        {
+            case "beginner": return 6f;
+            case "intermediate": return 10f;
+            case "advanced": return 15f;
+            default: return 10f;
+        }
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene("GameLevel");

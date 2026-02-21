@@ -8,13 +8,20 @@ public class SpawnAsteroids : MonoBehaviour
 
     public GameObject asteroidPrefab;
     //private float asteroidSpawnTimeMin = 3f; // originally 4
-    private float asteroidSpawnTimeMin = GameLevels.Instance.GetAsteroidSpawnTimeMin();
+    //private float asteroidSpawnTimeMin = GameLevels.Instance.GetAsteroidSpawnTimeMin();
+    private float asteroidSpawnTimeMin;
     //private float asteroidSpawnTimeMax = 6f; // originally 8
-    private float asteroidSpawnTimeMax = GameLevels.Instance.GetAsteroidSpawnTimeMax();
+    //private float asteroidSpawnTimeMax = GameLevels.Instance.GetAsteroidSpawnTimeMax();
+    private float asteroidSpawnTimeMax;
     public float lastAsteroidTime = -100f;
     private float newTime = -100f;
     private float astSize = 0; 
     private float speedBoost = 0f;
+    //private float minSpeed = GameLevels.Instance.GetAsteroidMinSpeed();
+    //private float maxSpeed = GameLevels.Instance.GetAsteroidMaxSpeed();
+    private float minSpeed;
+    private float maxSpeed;
+    float speed;
     //private float w = Screen.width;
     //private float h = Screen.height;
 
@@ -23,6 +30,15 @@ public class SpawnAsteroids : MonoBehaviour
     public float rightSide;
 
     public List<GameObject> asteroids = new List<GameObject>();
+
+    void Start()
+    {
+        asteroidSpawnTimeMin = GameLevels.Instance.GetAsteroidSpawnTimeMin();
+        asteroidSpawnTimeMax = GameLevels.Instance.GetAsteroidSpawnTimeMax();
+        minSpeed = GameLevels.Instance.GetAsteroidMinSpeed();
+        maxSpeed = GameLevels.Instance.GetAsteroidMaxSpeed();
+        speed = Random.Range(minSpeed, maxSpeed);
+    }
  
     // Update is called once per frame
     void Update()
@@ -36,7 +52,7 @@ public class SpawnAsteroids : MonoBehaviour
             astSize = Random.Range(.015f, .032f); // originally .01 to .03
             asteroid.transform.localScale = new Vector2(astSize, astSize);
             asteroid.transform.position = new Vector3(Random.Range(leftSide, rightSide), transform.position.y + 6, 0);
-            asteroid.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-4f, 4f), Random.Range(-8f - speedBoost, -.3f), 0).normalized * Random.Range(.1f, 10f);
+            asteroid.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-4f, 4f), Random.Range(-8f - speedBoost, -.3f), 0).normalized * speed;
             asteroids.Add(asteroid);	
         }
 
