@@ -20,36 +20,27 @@ public class GameLevels : MonoBehaviour
         this.level = level;
     }
 
-    // Returns walk speed corresponding to level chosen by user.
-    public float GetWalkSpeed()
+    // Returns asteroidSpawnTimeMin corresponding to level chosen by user.
+    public float GetAsteroidSpawnTimeMin()
     {
         switch (level)
         {
-            case "beginner": return 3f;
-                break;
-            case "intermediate": return 6f;
-                break;
-            case "advanced": return 9f;
-                break;
-            default: return 6f;
+            case "beginner": return 4f;
+            case "intermediate": return 3f;
+            case "advanced": return 1.5f;
+            default: return 3f;
         }
     }
 
-    // Returns run speed corresponding to level chosen by user.
-    public float GetRunSpeed()
+    // Returns asteroidSpawnTimeMax corresponding to level chosen by user.
+    public float GetAsteroidSpawnTimeMax()
     {
         switch (level)
         {
-            case "beginner":
-                return 9f;
-                break;
-            case "intermediate":
-                return 15f;
-                break;
-            case "advanced":
-                return 21f;
-                break;
-            default: return 15f;
+            case "beginner": return 8f;
+            case "intermediate": return 6f;
+            case "advanced": return 3f;
+            default: return 6f;
         }
     }
 

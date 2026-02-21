@@ -7,8 +7,10 @@ public class SpawnAsteroids : MonoBehaviour
 {
 
     public GameObject asteroidPrefab;
-    private float asteroidSpawnTimeMin = 3f; // originally 4
-    private float asteroidSpawnTimeMax = 6f; // originally 8
+    //private float asteroidSpawnTimeMin = 3f; // originally 4
+    private float asteroidSpawnTimeMin = GameLevels.Instance.GetAsteroidSpawnTimeMin();
+    //private float asteroidSpawnTimeMax = 6f; // originally 8
+    private float asteroidSpawnTimeMax = GameLevels.Instance.GetAsteroidSpawnTimeMax();
     public float lastAsteroidTime = -100f;
     private float newTime = -100f;
     private float astSize = 0; 
