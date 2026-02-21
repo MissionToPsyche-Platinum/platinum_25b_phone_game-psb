@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,8 +10,10 @@ public class HealthUI : MonoBehaviour
 {
     public TextMeshProUGUI HealthText;
     public int health = 3;
+    private int lastHealth = -1;
     private bool scoreAdded;
-    
+    private bool gameOverUIShown = false;
+
     public bool gameOverSoundPlayed = false;
     public TextMeshProUGUI gameOverText;
     [SerializeField] private GameObject replayButton;
@@ -21,6 +23,7 @@ public class HealthUI : MonoBehaviour
     {
         health = 3;
         scoreAdded = false;
+        gameOverText.text = "";
         replayButton.SetActive(false);
         menuButton.SetActive(false);
     }
@@ -30,19 +33,26 @@ public class HealthUI : MonoBehaviour
     {
         // updates help
         if (health > 0)
-        { 
-            HealthText.text = "Health: " + health;
-            gameOverText.text = "";
+        {
+            if (health != lastHealth)
+            {
+                HealthText.text = "Health: " + health;
+                lastHealth = health;
+            }
         }
         else
         {
-            GameOverScreen();
+            if (!gameOverUIShown)
+            {
+                GameOverScreen();
+            }
         }
     }
 
     // Creates all the proponents of the game over screen
     public void GameOverScreen()
     {
+        gameOverUIShown = true;
         if (gameOverSoundPlayed == false)
         {     
             SoundManager.instance.PlaySound("GameOverSound");
