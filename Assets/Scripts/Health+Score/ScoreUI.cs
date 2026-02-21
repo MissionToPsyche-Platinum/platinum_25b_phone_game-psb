@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,20 +12,36 @@ public class ScoreUI : MonoBehaviour
     public float scoreRate = 1f;
     public TextMeshProUGUI scoreText;
 
-    private void Update()
-    {   
+    private GameStart gameStart;
+    private int lastScore = -1;
+    private bool scoreHidden = false;
 
-        if(GameObject.Find("GameController").GetComponent<GameStart>().gameOver == true)
+    private void Start()
+    {
+        gameStart = GameObject.Find("GameController").GetComponent<GameStart>();
+    }
+
+    private void Update()
+    {
+        if (gameStart.gameOver == true)
         {
-            scoreText.text = "";
+            if (!scoreHidden)
+            {
+                scoreText.text = "";
+                scoreHidden = true;
+            }
         }
         else
         {
             // Adds 5 to score every in-game second, changed to
-           // from original implementation to allow points from power-up
+            // from original implementation to allow points from power-up
             score += Time.deltaTime * scoreRate;
-            finalScore = (int)score * 5 ;
-            scoreText.text = "SCORE: " + finalScore;
+            finalScore = (int)score * 5;
+            if (finalScore != lastScore)
+            {
+                scoreText.text = "SCORE: " + finalScore;
+                lastScore = finalScore;
+            }
         }
     }
 }
