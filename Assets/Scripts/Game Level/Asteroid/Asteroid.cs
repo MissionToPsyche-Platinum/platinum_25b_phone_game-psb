@@ -15,7 +15,7 @@ public class Asteroid : MonoBehaviour
     private bool isReleased = false;
     private Rigidbody2D rb;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spawnAsteroids = GameObject.Find("GameController").GetComponent<SpawnAsteroids>();
@@ -23,6 +23,7 @@ public class Asteroid : MonoBehaviour
 
     public void ResetAsteroid(Vector3 position, Vector2 scale, Vector2 velocity)
     {
+        CancelInvoke(nameof(ReleaseToPool));
         // Reset position, scale, velocity
         transform.position = position;
         transform.localScale = scale;
