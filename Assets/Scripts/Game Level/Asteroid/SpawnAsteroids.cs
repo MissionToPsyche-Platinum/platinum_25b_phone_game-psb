@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 // This script handles asteroid spawning
 
 public class SpawnAsteroids : MonoBehaviour
@@ -20,8 +21,22 @@ public class SpawnAsteroids : MonoBehaviour
     public float leftSide;
     public float rightSide;
 
-    public List<GameObject> asteroids = new List<GameObject>();
- 
+    private ObjectPool<GameObject> asteroidPool;
+    private const int defaultPoolCapacity = 10;
+    private const int maxPoolSize = 20;
+
+    void Start()
+    {
+        asteroidPool = new ObjectPool<GameObject>(
+            createFunc: () => Instantiate(asteroidPrefab),
+            actionOnGet: (obj) => obj.SetActive(true),
+            actionOnRelease: (obj) => obj.SetActive(false),
+            actionOnDestroy: (obj) => Destroy(obj),
+            defaultCapacity: defaultPoolCapacity,
+            maxSize: maxPoolSize
+        );
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -30,12 +45,13 @@ public class SpawnAsteroids : MonoBehaviour
         {
             lastAsteroidTime = Time.time;
             // create instance and set position and velocity
-            GameObject asteroid = Instantiate(asteroidPrefab);
+            GameObject asteroid = asteroidPool.Get();
             astSize = Random.Range(.015f, .032f); // originally .01 to .03
-            asteroid.transform.localScale = new Vector2(astSize, astSize);
-            asteroid.transform.position = new Vector3(Random.Range(leftSide, rightSide), transform.position.y + 6, 0);
-            asteroid.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(Random.Range(-4f, 4f), Random.Range(-8f - speedBoost, -.3f), 0).normalized * Random.Range(.1f, 10f);
-            asteroids.Add(asteroid);	
+            Vector3 spawnPos = new Vector3(Random.Range(leftSide, rightSide), transform.position.y + 6, 0);
+            Vector2 velocity = new Vector3(Random.Range(-4f, 4f), Random.Range(-8f - speedBoost, -.3f), 0).normalized * Random.Range(.1f, 10f);
+            Asteroid asteroidScript = asteroid.GetComponent<Asteroid>();
+            if (asteroidScript != null)
+                asteroidScript.ResetAsteroid(spawnPos, new Vector2(astSize, astSize), velocity);
         }
 
 
@@ -62,7 +78,10 @@ public class SpawnAsteroids : MonoBehaviour
 	        	speedBoost = -4f;
 	        }
    		}
+    }
 
-
+    public void ReleaseAsteroid(GameObject asteroid)
+    {
+        asteroidPool.Release(asteroid);
     }
 }
