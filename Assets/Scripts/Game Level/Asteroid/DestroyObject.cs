@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +9,10 @@ public class DestroyObject : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Destroy(animator.gameObject, stateInfo.length/2);
+        Asteroid asteroid = animator.GetComponent<Asteroid>();
+        if (asteroid != null)
+            asteroid.Invoke(nameof(Asteroid.ReleaseToPool), stateInfo.length / 2f);
+        else
+            Destroy(animator.gameObject, stateInfo.length / 2f);
     }
 }
