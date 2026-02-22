@@ -10,10 +10,14 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private GameObject triviaPanel;
     public int health;
 
-    private void Start() //set initial pause ststae (panel hidden and game unpaused)
+    private void Start() 
     {
-        pausePanel.SetActive(false);
-        inPauseMenu = false;
+      triviaPanel = GameObject.Find("Trivia Panel");
+       pausePanel = GameObject.Find("Pause Panel");
+
+       if (pausePanel != null) //prevents the NullReference if Pause Panel is not found in scene
+            pausePanel.SetActive(false);
+       inPauseMenu = false;
     }
     
     // Update is called once per frame
