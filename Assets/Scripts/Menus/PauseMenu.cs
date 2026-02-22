@@ -10,10 +10,8 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private GameObject triviaPanel;
     public int health;
 
-    private void Start()
+    private void Start() //set initial pause ststae (panel hidden and game unpaused)
     {
-        triviaPanel = GameObject.Find("Trivia Panel");
-        pausePanel = GameObject.Find("Pause Panel");
         pausePanel.SetActive(false);
         inPauseMenu = false;
     }
@@ -43,9 +41,11 @@ public class PauseMenu : MonoBehaviour
     // Resumes game after paused
     public void ResumeGame()
     {
-		//triviaPanel = GameObject.Find("Trivia Panel");
-        //UPDATED
+        //triviaPanel = GameObject.Find("Trivia Panel");
+        if (ReferenceEquals(triviaPanel, null))
+        {
             Time.timeScale = 1f;
+        }
         pausePanel.SetActive(false);
         inPauseMenu = false;
     }
