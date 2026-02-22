@@ -14,10 +14,21 @@ public class PauseMenu : MonoBehaviour
     {
         triviaPanel = GameObject.Find("Trivia Panel");
         pausePanel = GameObject.Find("Pause Panel");
-        pausePanel.SetActive(false);
+
+        if (pausePanel != null) //prevents the NullReference if Pause Panel is not found in scene
+            pausePanel.SetActive(false);
         inPauseMenu = false;
     }
-    
+
+    public void PauseToggle() //toggle pause menu
+    {
+        health = GameObject.Find("Health").GetComponent<HealthUI>().health;
+
+        if (!inPauseMenu && health > 0)
+            PauseGame();
+        else ResumeGame();
+    }
+
     // Update is called once per frame
     private void Update()
     {
