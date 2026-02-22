@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 // This script controls movement of the Psyche spacecraft
@@ -158,6 +158,7 @@ public class PsycheMovement : MonoBehaviour
 	    {
             // asteroid collision consumed
             enemyCollider.gameObject.GetComponent<Asteroid>().health = 0;
+            enemyCollider.gameObject.GetComponent<Asteroid>().DestroyAsteroid();
 		    // Reduces player's life
         	GameObject.Find("Health").GetComponent<HealthUI>().health--;
             rb.MovePosition(rb.transform.position - new Vector3(0, 0.5f, 0));
