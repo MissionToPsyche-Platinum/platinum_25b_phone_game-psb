@@ -17,7 +17,7 @@ public void SetDirectionForTest(Vector2 dir)
 #endif
 
 
-    private void Start()
+    public void Start()
     {
         Direction = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;

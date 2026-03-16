@@ -23,7 +23,7 @@ public class PowerUpManager : MonoBehaviour
         InvokeRepeating(nameof(SpawnPowerUp),firstAppearance, rateOfSpawn);
     }
     
-    private void SpawnPowerUp()
+    public void SpawnPowerUp()
     {
         // Power-Up 0 : Trivia 60% chance
         // Get the power-up for 500 point score increase,
@@ -58,5 +58,11 @@ public class PowerUpManager : MonoBehaviour
         Instantiate(powerUpList[item], spawnPos, Quaternion.identity);
 
         SoundManager.instance.PlaySound("PowerUp");
+    }
+
+    // class created for testing purposes
+    protected virtual GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
+    {
+        return Instantiate(prefab, pos, Quaternion.identity);
     }
 }
