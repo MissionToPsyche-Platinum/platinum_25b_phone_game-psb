@@ -535,6 +535,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f867be1e08a2ae4bb594ebae6a5750e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameLevels
+  triviaBanks:
+  - {fileID: 11400000, guid: 39bff28d3cdd80b44a9a1fc8470f6cbc, type: 2}
+  - {fileID: 11400000, guid: 7659e45a8eec2ec47b5b72059f628462, type: 2}
+  - {fileID: 11400000, guid: 381886bc6a425fd4194cfd93bec84f83, type: 2}
 --- !u!4 &1529576938
 Transform:
   m_ObjectHideFlags: 0
