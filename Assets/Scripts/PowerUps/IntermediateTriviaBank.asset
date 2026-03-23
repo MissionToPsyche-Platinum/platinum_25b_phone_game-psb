@@ -51,44 +51,45 @@ MonoBehaviour:
     correctChoice: 2
   - question: What type of propulsion system powers the Psyche spacecraft?
     choices:
-    - placeholder
-    - placeholder
+    - Chemical rocket propulsion
+    - Nuclear propulsion
     - Solar electric propulsion
-    - placeholder
+    - Gravity-assisted propulsion
     correctChoice: 3
   - question: "What propellant is used by Psyche\u2019s Hall-effect thrusters?"
     choices:
     - Xenon
-    - placeholder
-    - placeholder
-    - placeholder
+    - Hydrogen
+    - Helium
+    - Oxygen
     correctChoice: 1
   - question: How many thrusters does the Psyche spacecraft have?
     choices:
-    - placeholder
-    - placeholder
-    - placeholder
+    - One
+    - Two
+    - Three
     - Four
     correctChoice: 4
   - question: Which NASA center manages the Psyche mission?
     choices:
-    - placeholder
-    - Jet Propulsion Laboratory (JPL)
-    - placeholder
-    - placeholder
+    - Johnson Space Center
+    - Jet Propulsion Laboratory
+    - Goddard Space Flight Center
+    - Ames Research Center
     correctChoice: 2
   - question: Which NASA program manages the launch operations for the Psyche mission?
     choices:
-    - placeholder
-    - placeholder
+    - Artemis Program
+    - Commercial Crew Program
     - Launch Services Program
-    - placeholder
+    - Discovery Program
     correctChoice: 3
   - question: 'Where can people find activities and opportunities related to the
       Psyche mission? '
     choices:
     - "At the Psyche \u201CGet Involved\u201D webpage"
-    - placeholder
-    - placeholder
-    - placeholder
+    - The SpaceX website
+    - "NASA\u2019s engineering handbook"
+    - The Smithsonian website
     correctChoice: 1
+  selectedBankName: intermediate
