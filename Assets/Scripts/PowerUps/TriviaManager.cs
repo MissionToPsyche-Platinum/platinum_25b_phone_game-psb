@@ -10,6 +10,7 @@ using TMPro;
 public class TriviaManager: MonoBehaviour
 {
     public List<Trivia> triviaBank;
+
     public GameObject[] choiceButtons;
     public int currentQuestion;
     public TextMeshProUGUI questionText;
@@ -25,6 +26,8 @@ public class TriviaManager: MonoBehaviour
     public void ActivateTrivia()
     {
 	    triviaPanel.SetActive(true);
+        // initialize trivia based on level selection
+        triviaBank = GameLevels.Instance.GetTrivia().questions;
 	    GetRandomQuestion();
     }
 
