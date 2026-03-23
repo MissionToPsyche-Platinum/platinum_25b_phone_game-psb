@@ -5,4 +5,5 @@ using UnityEngine;
 public class TriviaBankSO : ScriptableObject
 {
     public List<Trivia> questions;
+    [SerializeField] public string selectedBankName;
 }
