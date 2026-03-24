@@ -2,48 +2,50 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
+using System.Collections.Generic; // for use of HashSet
 
-public class TC008
+public class TC008 
 {
-    public GameObject joystickObject;
-    public Joystick joystick;
-
-    [SetUp]
-    public void Setup()
+    private class TestPowerUpManager : PowerUpManager
     {
-        // * joystick component setup *
-        joystickObject = new GameObject("Joystick");
-        joystick = joystickObject.AddComponent<Joystick>();
-        // background and handle
-        var bgObj = new GameObject("Background", typeof(RectTransform));
-        var handleObj = new GameObject("Handle", typeof(RectTransform));
-        joystick.background = bgObj.GetComponent<RectTransform>();
-        joystick.handle = handleObj.GetComponent<RectTransform>();
-        // set size
-        joystick.background.sizeDelta = new Vector2(200, 200);
+        public GameObject lastPrefab; // tracks created power-ups
 
-        joystick.Start();
-    }
-
-    [TearDown]
-    public void Teardown()
-    {
-        Object.DestroyImmediate(joystickObject);
+        protected override GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
+        {
+            lastPrefab = prefab;
+            return new GameObject("SpawnedPowerUp");
+        }
     }
 
     [Test]
-    public void CanDetectJoystickDrag()
+    public void TypeChangesAcrossCalls()
     {
-        // Simulate drag to the right
-        joystick.SetDirectionForTest(Vector2.right);
-        // Test if movement vectors were correctly updated with drag
-        Assert.AreEqual(1f, joystick.Direction.x, 0.01f, "Joystick should register movement to the right");
-        Assert.AreEqual(0f, joystick.Direction.y, 0.01f);
+        // set up manager
+        var go = new GameObject("PowerUpManager");
+        var manager = go.AddComponent<TestPowerUpManager>();
 
-        // Simulate release
-        // Test if movement vectors were correctly updated upon release
-        joystick.SetDirectionForTest(Vector2.zero); // release
-        Assert.AreEqual(0f, joystick.Direction.x, 0.01f, "Joystick should reset after release");
-        Assert.AreEqual(0f, joystick.Direction.y, 0.01f);
+        manager.powerUpList = new GameObject[]
+        {
+            // five power-ups 0-4
+            new GameObject("PU0"),
+            new GameObject("PU1"),
+            new GameObject("PU2"),
+            new GameObject("PU3"),
+            new GameObject("PU4")
+        };
+
+        HashSet<GameObject> pUTypes = new HashSet<GameObject>();
+
+        // Spawn PUs 10 times to check for different types
+        // Add types to hashset for testing
+        for (int i = 0; i < 20; i++)
+        {
+            manager.SpawnPowerUp();
+            pUTypes.Add(manager.lastPrefab);
+        }
+
+        // Test if more than one type of PU was spawned
+        Assert.Greater(pUTypes.Count, 1, $"Expected more than one power-up type to appear, but only saw {pUTypes.Count} type(s).");
+
     }
 }

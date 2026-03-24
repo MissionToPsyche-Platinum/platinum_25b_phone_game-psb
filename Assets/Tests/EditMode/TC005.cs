@@ -2,50 +2,37 @@ using System.Collections;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using System.Collections.Generic; // for use of HashSet
 
-public class TC005
+public class TC005 
 {
     private class TestPowerUpManager : PowerUpManager
     {
-        public GameObject lastPrefab; // tracks created power-ups
+        public GameObject lastCreated;
 
         protected override GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
         {
-            lastPrefab = prefab;
-            return new GameObject("SpawnedPowerUp");
+            lastCreated = new GameObject("SpawnedPowerUp");
+            return lastCreated;
         }
     }
 
     [Test]
-    public void TypeChangesAcrossCalls()
+    public void SpawnPowerUp()
     {
-        // set up manager
-        var go = new GameObject("PowerUpManager");
+        // set up game object and manager
+        var go = new GameObject();
         var manager = go.AddComponent<TestPowerUpManager>();
 
         manager.powerUpList = new GameObject[]
         {
-            // five power-ups 0-4
-            new GameObject("PU0"),
+            // three power-ups 0-2
+            new GameObject("PU0"), 
             new GameObject("PU1"),
             new GameObject("PU2"),
-            new GameObject("PU3"),
-            new GameObject("PU4")
         };
 
-        HashSet<GameObject> pUTypes = new HashSet<GameObject>();
-
-        // Spawn PUs 10 times to check for different types
-        // Add types to hashset for testing
-        for (int i = 0; i < 20; i++)
-        {
-            manager.SpawnPowerUp();
-            pUTypes.Add(manager.lastPrefab);
-        }
-
-        // Test if more than one type of PU was spawned
-        Assert.Greater(pUTypes.Count, 1, $"Expected more than one power-up type to appear, but only saw {pUTypes.Count} type(s).");
-
+        // checks if spawned
+        manager.SpawnPowerUp();
+        Assert.IsNotNull(manager.lastCreated, "SpawnPowerUp did not create a power-up");
     }
 }

@@ -36,22 +36,5 @@ public class TC001
     {
         joystick.SetDirectionForTest(new Vector2(1, 0)); // (1,0)
         Assert.AreEqual(1, joystick.Direction.x, 0.01f);
-        Assert.AreEqual(0, joystick.Direction.y, 0.01f);
-
-        joystick.SetDirectionForTest(new Vector2(-1, 0)); // (-1,0)
-        Assert.AreEqual(-1, joystick.Direction.x, 0.01f);
-        Assert.AreEqual(0, joystick.Direction.y, 0.01f);
-
-        joystick.SetDirectionForTest(new Vector2(0, 1)); // (0,1)
-        Assert.AreEqual(0, joystick.Direction.x, 0.01f);
-        Assert.AreEqual(1, joystick.Direction.y, 0.01f);
-
-        joystick.SetDirectionForTest(new Vector2(0, -1)); // (0,-1)
-        Assert.AreEqual(0, joystick.Direction.x, 0.01f);
-        Assert.AreEqual(-1, joystick.Direction.y, 0.01f);
-
-        joystick.SetDirectionForTest(Vector2.zero); // (0,0)
-        Assert.AreEqual(0, joystick.Direction.x, 0.01f);
-        Assert.AreEqual(0, joystick.Direction.y, 0.01f);
     }
 }

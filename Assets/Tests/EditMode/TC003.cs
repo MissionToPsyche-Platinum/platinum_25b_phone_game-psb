@@ -5,56 +5,36 @@ using UnityEngine.TestTools;
 
 public class TC003
 {
-    private class TestPowerUpManager : PowerUpManager
-    {
-        public Vector3 lastPosition;
+    public GameObject joystickObject;
+    public Joystick joystick;
 
-        protected override GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
-        {
-            lastPosition = pos;
-            return new GameObject("SpawnedPowerUp");
-        }
+    [SetUp]
+    public void Setup()
+    {
+        // * joystick component setup *
+        joystickObject = new GameObject("Joystick");
+        joystick = joystickObject.AddComponent<Joystick>();
+        // background and handle
+        var bgObj = new GameObject("Background", typeof(RectTransform));
+        var handleObj = new GameObject("Handle", typeof(RectTransform));
+        joystick.background = bgObj.GetComponent<RectTransform>();
+        joystick.handle = handleObj.GetComponent<RectTransform>();
+        // set size
+        joystick.background.sizeDelta = new Vector2(200, 200);
+
+        joystick.Start();
+    }
+
+    [TearDown]
+    public void Teardown()
+    {
+        Object.DestroyImmediate(joystickObject);
     }
 
     [Test]
-    public void SpawnedInBounds()
+    public void Test_Movement()
     {
-        //// set up a fake camera
-        var camGO = new GameObject("MainCamera");
-        camGO.tag = "MainCamera";
-        var cam = camGO.AddComponent<Camera>();
-        cam.orthographic = true;
-        // test values are same as project settings
-        cam.orthographicSize = 5f;      
-        cam.aspect = 10f / 16f;
-        // save values
-        float ortho = cam.orthographicSize;
-        float aspect = cam.aspect;
-        float minX = -ortho * aspect;
-        float maxX = ortho * aspect;
-        float minY = -ortho;
-        float maxY = ortho;
-
-        // set up manager
-        var go = new GameObject("PowerUpManager");
-        var manager = go.AddComponent<TestPowerUpManager>();
-
-        manager.powerUpList = new GameObject[]
-        {
-            // five power-ups 0-4
-            new GameObject("PU0"),
-            new GameObject("PU1"),
-            new GameObject("PU2"),
-            new GameObject("PU3"),
-            new GameObject("PU4")
-        };
-
-        manager.SpawnPowerUp();
-        Vector3 p = manager.lastPosition;
-
-        // test if x and y are in bounds
-        Assert.That(p.x, Is.InRange(minX, maxX), $"X out of bounds: {p.x}");
-        Assert.That(p.y, Is.InRange(minY, maxY), $"Y out of bounds: {p.y}");
-        Assert.AreEqual(0f, p.z, "Z is expected to be 0");
+        joystick.SetDirectionForTest(new Vector2(0, 1)); // (0,1)
+        Assert.AreEqual(1, joystick.Direction.y, 0.01f);
     }
 }

@@ -3,7 +3,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-public class TC009 
+public class TC011 
 {
     public GameObject joystickObject;
     public Joystick joystick;
@@ -32,18 +32,18 @@ public class TC009
     }
 
     [Test]
-    public void MovesSideToSide()
+    public void CanDetectJoystickDrag()
     {
-        // Move fully left
-        joystick.SetDirectionForTest(new Vector2(-1, 0));
-        Assert.AreEqual(-1, joystick.Direction.x, 0.01f);
+        // Simulate drag to the right
+        joystick.SetDirectionForTest(Vector2.right);
+        // Test if movement vectors were correctly updated with drag
+        Assert.AreEqual(1f, joystick.Direction.x, 0.01f, "Joystick should register movement to the right");
+        Assert.AreEqual(0f, joystick.Direction.y, 0.01f);
 
-        // Neutral
-        joystick.SetDirectionForTest(Vector2.zero);
-        Assert.AreEqual(0, joystick.Direction.x, 0.01f);
-
-        // Move fully right
-        joystick.SetDirectionForTest(new Vector2(1, 0));
-        Assert.AreEqual(1, joystick.Direction.x, 0.01f);
+        // Simulate release
+        // Test if movement vectors were correctly updated upon release
+        joystick.SetDirectionForTest(Vector2.zero); // release
+        Assert.AreEqual(0f, joystick.Direction.x, 0.01f, "Joystick should reset after release");
+        Assert.AreEqual(0f, joystick.Direction.y, 0.01f);
     }
 }

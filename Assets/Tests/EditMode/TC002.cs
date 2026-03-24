@@ -5,34 +5,36 @@ using UnityEngine.TestTools;
 
 public class TC002
 {
-    private class TestPowerUpManager : PowerUpManager
-    {
-        public GameObject lastCreated;
+    public GameObject joystickObject;
+    public Joystick joystick;
 
-        protected override GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
-        {
-            lastCreated = new GameObject("SpawnedPowerUp");
-            return lastCreated;
-        }
+    [SetUp]
+    public void Setup()
+    {
+        // * joystick component setup *
+        joystickObject = new GameObject("Joystick");
+        joystick = joystickObject.AddComponent<Joystick>();
+        // background and handle
+        var bgObj = new GameObject("Background", typeof(RectTransform));
+        var handleObj = new GameObject("Handle", typeof(RectTransform));
+        joystick.background = bgObj.GetComponent<RectTransform>();
+        joystick.handle = handleObj.GetComponent<RectTransform>();
+        // set size
+        joystick.background.sizeDelta = new Vector2(200, 200);
+
+        joystick.Start();
+    }
+
+    [TearDown]
+    public void Teardown()
+    {
+        Object.DestroyImmediate(joystickObject);
     }
 
     [Test]
-    public void SpawnPowerUp()
+    public void Test_Movement()
     {
-        // set up game object and manager
-        var go = new GameObject();
-        var manager = go.AddComponent<TestPowerUpManager>();
-
-        manager.powerUpList = new GameObject[]
-        {
-            // three power-ups 0-2
-            new GameObject("PU0"), 
-            new GameObject("PU1"),
-            new GameObject("PU2"),
-        };
-
-        // checks if spawned
-        manager.SpawnPowerUp();
-        Assert.IsNotNull(manager.lastCreated, "SpawnPowerUp did not create a power-up");
+        joystick.SetDirectionForTest(new Vector2(-1, 0)); // (-1,0)
+        Assert.AreEqual(-1, joystick.Direction.x, 0.01f);
     }
 }
