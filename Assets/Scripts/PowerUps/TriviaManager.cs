@@ -10,6 +10,8 @@ using TMPro;
 public class TriviaManager: MonoBehaviour
 {
     public List<Trivia> triviaBank;
+    private List<Trivia> availableQuestions = new List<Trivia>();
+    private Trivia currentTrivia;
 
     public GameObject[] choiceButtons;
     public int currentQuestion;
@@ -20,22 +22,33 @@ public class TriviaManager: MonoBehaviour
     {
 	    triviaPanel = GameObject.Find("Trivia Panel");
 	    triviaPanel.SetActive(false);
+        // initialize trivia based on level selection
+        triviaBank = GameLevels.Instance.GetTrivia().questions;
+        availableQuestions = new List<Trivia>(triviaBank); // all questions are available at set up
     }
 
     // activates trivia panel and sets random question
     public void ActivateTrivia()
     {
-	    triviaPanel.SetActive(true);
-        // initialize trivia based on level selection
-        triviaBank = GameLevels.Instance.GetTrivia().questions;
-	    GetRandomQuestion();
+	    triviaPanel.SetActive(true);       
+        GetRandomQuestion();
     }
 
     // Gets random question from trivia bank
     private void GetRandomQuestion()
     {
-        currentQuestion = Random.Range(0, triviaBank.Count);
-        questionText.text = triviaBank[currentQuestion].question;
+        if (availableQuestions.Count == 0)
+        {
+            // reset if all questions already selected
+            availableQuestions = new List<Trivia>(triviaBank); 
+        }
+
+        int randomIndex = Random.Range(0, availableQuestions.Count);
+        currentTrivia = availableQuestions[randomIndex];
+
+        questionText.text = currentTrivia.question;
+        availableQuestions.RemoveAt(randomIndex);
+        
         SetChoices();
     }
 
@@ -48,12 +61,12 @@ public class TriviaManager: MonoBehaviour
         {
             choiceButtons[button].GetComponent<Button>().interactable = true;
             choiceButtons[button].GetComponent<Image>().color = Color.white; // reset color
-            string choiceText = triviaBank[currentQuestion].choices[button];
+            string choiceText = currentTrivia.choices[button];
             choiceButtons[button].GetComponentInChildren<TextMeshProUGUI>().text = choiceText;
             
             // Note that the correct options go from 1 to 4 due to how buttons work.
             // Keep it in mind when picking which button is the correct answer.
-			if(triviaBank[currentQuestion].correctChoice == button+1)
+			if(currentTrivia.correctChoice == button+1)
 			{
 				choiceButtons[button].GetComponent<TriviaAnwser>().isCorrect = true;
 			} else {
@@ -70,7 +83,7 @@ public class TriviaManager: MonoBehaviour
 
         for (int button = 0; button < choiceButtons.Length; button++)
         {
-			if(triviaBank[currentQuestion].correctChoice == button+1)
+			if(currentTrivia.correctChoice == button+1)
 			{
 				choice =  choiceButtons[button];
 			}
