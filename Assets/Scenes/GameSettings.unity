@@ -666,7 +666,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4952136790288025580, guid: 4cc8c51448d1fe443b572664ae1f8c77, type: 3}
       propertyPath: m_Name
-      value: Levels Panel
+      value: LevelsPanel
       objectReference: {fileID: 0}
     - target: {fileID: 6623745746788135070, guid: 4cc8c51448d1fe443b572664ae1f8c77, type: 3}
       propertyPath: m_Pivot.x
