@@ -9,7 +9,7 @@ public class TC007
     {
         public Vector3 lastPosition;
 
-        protected override GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
+        public override GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
         {
             lastPosition = pos;
             return new GameObject("SpawnedPowerUp");
@@ -38,6 +38,12 @@ public class TC007
         // set up manager
         var go = new GameObject("PowerUpManager");
         var manager = go.AddComponent<TestPowerUpManager>();
+
+        var boundsObject = new GameObject("Bounds");
+        var boundsCollider = boundsObject.AddComponent<BoxCollider2D>();
+        boundsCollider.size = new Vector2(10f, 10f);
+
+        manager.gameplayBounds = boundsCollider;
 
         manager.powerUpList = new GameObject[]
         {

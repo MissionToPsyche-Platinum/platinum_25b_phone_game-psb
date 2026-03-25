@@ -9,9 +9,12 @@ public class TC005
     {
         public GameObject lastCreated;
 
-        protected override GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
+        public override GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
         {
+            Debug.Log("CreatePowerUp WAS CALLED");
+
             lastCreated = new GameObject("SpawnedPowerUp");
+            Debug.Log("lastCreated is null? " + (lastCreated == null));
             return lastCreated;
         }
     }
@@ -19,20 +22,32 @@ public class TC005
     [Test]
     public void SpawnPowerUp()
     {
-        // set up game object and manager
         var go = new GameObject();
         var manager = go.AddComponent<TestPowerUpManager>();
 
+        var boundsObject = new GameObject("Bounds");
+        var boundsCollider = boundsObject.AddComponent<BoxCollider2D>();
+        boundsCollider.size = new Vector2(10f, 10f);
+
+        manager.gameplayBounds = boundsCollider;
+
         manager.powerUpList = new GameObject[]
         {
-            // three power-ups 0-2
-            new GameObject("PU0"), 
-            new GameObject("PU1"),
-            new GameObject("PU2"),
+        new GameObject("PU0"),
+        new GameObject("PU1"),
+        new GameObject("PU2"),
         };
 
-        // checks if spawned
-        manager.SpawnPowerUp();
+        try
+        {
+            manager.SpawnPowerUp();
+        }
+        catch (System.Exception ex)
+        {
+            Assert.Fail("SpawnPowerUp threw an exception: " + ex);
+        }
+
+        Debug.Log("Before assert, lastCreated is null? " + (manager.lastCreated == null));
         Assert.IsNotNull(manager.lastCreated, "SpawnPowerUp did not create a power-up");
     }
 }

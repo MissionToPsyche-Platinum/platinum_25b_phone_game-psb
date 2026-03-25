@@ -55,13 +55,17 @@ public class PowerUpManager : MonoBehaviour
 
         Vector3 spawnPos = new Vector3(x, y, 0);
 
-        Instantiate(powerUpList[item], spawnPos, Quaternion.identity);
+        //Instantiate(powerUpList[item], spawnPos, Quaternion.identity);
+        CreatePowerUp(powerUpList[item], spawnPos);
 
-        SoundManager.instance.PlaySound("PowerUp");
+        if (SoundManager.instance != null)
+        {
+            SoundManager.instance.PlaySound("PowerUp");
+        }
     }
 
     // class created for testing purposes
-    protected virtual GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
+    public virtual GameObject CreatePowerUp(GameObject prefab, Vector3 pos)
     {
         return Instantiate(prefab, pos, Quaternion.identity);
     }
