@@ -50,7 +50,7 @@ MonoBehaviour:
     - NASA's Cassini mission
     - NASA's Juno mission
     correctChoice: 1
-  - question: What role does Maxar Technologies play in the Psyche mission?
+  - question: What role did Maxar Technologies play in the Psyche mission?
     choices:
     - Operating the spacecraft in orbit
     - Designing the asteroid landing system
@@ -65,8 +65,8 @@ MonoBehaviour:
     - AstroNavigator
     - Eyes on the Solar System
     correctChoice: 4
-  - question: "What will the first images from Psyche\u2019s multispectral imager
-      most likely show?"
+  - question: "What did the first images from Psyche\u2019s multispectral imager
+      show?"
     choices:
     - "The asteroid Psyche\u2019s surface"
     - Other planets in the solar system
