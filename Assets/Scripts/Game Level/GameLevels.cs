@@ -2,18 +2,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class GameLevels : MonoBehaviour
 {
     public static GameLevels Instance { get; private set; }
 
-    private GameObject levelsPanel;
+    [SerializeField] private GameObject levelsPanel;
     [SerializeField] private List<TriviaBankSO> triviaBanks;
+    [SerializeField] private GameObject skinsPanel;
+
+    public TextMeshProUGUI debugText;
 
     void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+    }
+
+    void Start()
+    {
+        skinsPanel.SetActive(false); // skins panel is initially inactive
     }
 
     private string level; // can be beginner, intermediate or advanced
@@ -82,5 +91,17 @@ public class GameLevels : MonoBehaviour
         TriviaBankSO selectedBank = triviaBanks.Find(bank => bank.selectedBankName == level);
 
         return selectedBank;
+    }
+
+    public void PickSkin()
+    {
+        // Activate skins panel
+        levelsPanel.SetActive(false);
+        skinsPanel.SetActive(true);
+    }
+
+    public void TestSkinPanel(string color)
+    {
+        debugText.text = "Selected: " + color;
     }
 }
