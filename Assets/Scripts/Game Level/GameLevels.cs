@@ -1,11 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameLevels : MonoBehaviour
 {
     public static GameLevels Instance { get; private set; }
 
     private GameObject levelsPanel;
+    [SerializeField] private List<TriviaBankSO> triviaBanks;
 
     void Awake()
     {
@@ -71,5 +74,13 @@ public class GameLevels : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("GameLevel");
+    }
+
+    // Returns correct trivia bank
+    public TriviaBankSO GetTrivia()
+    {
+        TriviaBankSO selectedBank = triviaBanks.Find(bank => bank.selectedBankName == level);
+
+        return selectedBank;
     }
 }

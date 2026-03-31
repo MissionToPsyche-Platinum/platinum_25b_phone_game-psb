@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58848e7835e6ac64b830abd0f7a94e24, type: 3}
+  m_Name: AdvancedTriviaBank
+  m_EditorClassIdentifier: Assembly-CSharp::TriviaBankSO
+  questions:
+  - question: "What is the purpose of the Psyche\u2019s magnetometer?"
+    choices:
+    - "To measure the asteroid\u2019s temperature"
+    - To detect evidence of an ancient magnetic field at the asteroid
+    - "To capture images of the asteroid\u2019s surface"
+    - To measure radiation levels
+    correctChoice: 2
+  - question: What science instrument will help scientists determine the chemical
+      elements that make up the Psyche asteroid?
+    choices:
+    - "The orbiter\u2019s gamma-ray and neutron spectrometer"
+    - Magnetometer
+    - Multispectral imager
+    - Solar panel array
+    correctChoice: 1
+  - question: "What information will Psyche\u2019s multispectral imager provide?"
+    choices:
+    - "The asteroid\u2019s internal temperature"
+    - The Psyche asteroid's age
+    - The Psyche asteroid's mineral composition and topography
+    - "The asteroid\u2019s orbit around the Sun"
+    correctChoice: 3
+  - question: "How can scientists determine the Psyche asteroid\u2019s rotation,
+      mass, and gravity field?"
+    choices:
+    - By measuring sunlight reflected from the asteroid
+    - By analyzing radio waves used to communicate with the spacecraft
+    - By sending lasers to the asteroid
+    - By measuring heat emitted by the asteroid
+    correctChoice: 2
+  - question: Which previous NASA mission used similar propulsion technology to Psyche?
+    choices:
+    - "NASA\u2019s Dawn mission"
+    - NASA's Voyager mission
+    - NASA's Cassini mission
+    - NASA's Juno mission
+    correctChoice: 1
+  - question: What role did Maxar Technologies play in the Psyche mission?
+    choices:
+    - Operating the spacecraft in orbit
+    - Designing the asteroid landing system
+    - Building the launch rocket
+    - Delivering the solar electric propulsion chassis and engineering hardware
+    correctChoice: 4
+  - question: What tool allows users to track the Psyche spacecraft in real-time
+      3D?
+    choices:
+    - NASA Sky Tracker
+    - SpaceView 360
+    - AstroNavigator
+    - Eyes on the Solar System
+    correctChoice: 4
+  - question: "What did the first images from Psyche\u2019s multispectral imager
+      show?"
+    choices:
+    - "The asteroid Psyche\u2019s surface"
+    - Other planets in the solar system
+    - Fields of stars
+    - Earth from space
+    correctChoice: 3
+  selectedBankName: advanced
