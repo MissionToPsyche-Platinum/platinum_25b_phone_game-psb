@@ -34,9 +34,11 @@ public class PsycheMovement : MonoBehaviour
     private void Start()
     {
 		rb = this.GetComponent<Rigidbody2D>();
+
         // set default speeds
         walkSpeed = defaultWalkSpeed;
         runSpeed = defaultRunSpeed;
+
     }
 
     // Update is called once per frame
