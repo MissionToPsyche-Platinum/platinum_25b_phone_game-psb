@@ -12,8 +12,6 @@ public class GameLevels : MonoBehaviour
     [SerializeField] private List<TriviaBankSO> triviaBanks;
     [SerializeField] private GameObject skinsPanel;
 
-    public TextMeshProUGUI debugText;
-
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -26,6 +24,7 @@ public class GameLevels : MonoBehaviour
     }
 
     private string level; // can be beginner, intermediate or advanced
+    private string skinColor; // red, blue or green
 
     public void SetLevel(string level)
     {
@@ -100,8 +99,17 @@ public class GameLevels : MonoBehaviour
         skinsPanel.SetActive(true);
     }
 
-    public void TestSkinPanel(string color)
+    public void SetSkin(string color)
     {
-        debugText.text = "Selected: " + color;
+        this.skinColor = color;
+    }
+
+    public string GetSkin()
+    {
+        if (skinColor != null)
+        {
+            return skinColor;
+        }
+        return "blue"; // default color is blue
     }
 }
