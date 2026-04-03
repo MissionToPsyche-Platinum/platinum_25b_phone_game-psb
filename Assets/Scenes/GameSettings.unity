@@ -576,7 +576,7 @@ GameObject:
   - component: {fileID: 455785043}
   - component: {fileID: 455785042}
   m_Layer: 5
-  m_Name: Skin3
+  m_Name: skinButton3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,7 +647,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1529576937}
         m_TargetAssemblyTypeName: GameLevels, Assembly-CSharp
-        m_MethodName: TestSkinPanel
+        m_MethodName: SetSkin
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -844,7 +844,7 @@ GameObject:
   - component: {fileID: 807544380}
   - component: {fileID: 807544379}
   m_Layer: 5
-  m_Name: Skin2
+  m_Name: skinButton2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -915,7 +915,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1529576937}
         m_TargetAssemblyTypeName: GameLevels, Assembly-CSharp
-        m_MethodName: TestSkinPanel
+        m_MethodName: SetSkin
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1407,7 +1407,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7659e45a8eec2ec47b5b72059f628462, type: 2}
   - {fileID: 11400000, guid: 381886bc6a425fd4194cfd93bec84f83, type: 2}
   skinsPanel: {fileID: 827330650}
-  debugText: {fileID: 718757098}
 --- !u!4 &1529576938
 Transform:
   m_ObjectHideFlags: 0
@@ -1569,7 +1568,7 @@ GameObject:
   - component: {fileID: 1921743095}
   - component: {fileID: 1921743094}
   m_Layer: 5
-  m_Name: Skin1
+  m_Name: skinButton1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1640,7 +1639,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1529576937}
         m_TargetAssemblyTypeName: GameLevels, Assembly-CSharp
-        m_MethodName: TestSkinPanel
+        m_MethodName: SetSkin
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
