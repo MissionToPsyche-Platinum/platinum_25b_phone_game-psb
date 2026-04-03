@@ -1252,7 +1252,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 056062412b8222647b6bff17d2541b77, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -1497,6 +1497,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7659e45a8eec2ec47b5b72059f628462, type: 2}
   - {fileID: 11400000, guid: 381886bc6a425fd4194cfd93bec84f83, type: 2}
   skinsPanel: {fileID: 827330650}
+  spacecraftPreview: {fileID: 1269372915}
+  defaultPreview: {fileID: 21300000, guid: 056062412b8222647b6bff17d2541b77, type: 3}
+  redPreview: {fileID: -5248119325895823072, guid: 55268bd7a6376c0439e35a9f6381bfc1, type: 3}
+  greenPreview: {fileID: -5248119325895823072, guid: b02e2a355acb2e24680c7be849b4d9e3, type: 3}
 --- !u!4 &1529576938
 Transform:
   m_ObjectHideFlags: 0

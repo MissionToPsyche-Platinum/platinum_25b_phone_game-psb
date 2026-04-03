@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UnityEngine.UI;
 
 public class GameLevels : MonoBehaviour
 {
@@ -11,6 +11,13 @@ public class GameLevels : MonoBehaviour
     [SerializeField] private GameObject levelsPanel;
     [SerializeField] private List<TriviaBankSO> triviaBanks;
     [SerializeField] private GameObject skinsPanel;
+
+    // skins panel fields
+    [SerializeField] private Image spacecraftPreview;
+    [SerializeField] private Sprite defaultPreview; // default = blue
+    [SerializeField] private Sprite redPreview;
+    [SerializeField] private Sprite greenPreview;
+
 
     void Awake()
     {
@@ -102,6 +109,17 @@ public class GameLevels : MonoBehaviour
     public void SetSkin(string color)
     {
         this.skinColor = color;
+        switch(color)
+        {
+            case "red": spacecraftPreview.sprite = redPreview; 
+                break;
+            case "green":
+                spacecraftPreview.sprite = greenPreview;
+                break;
+            default:
+                spacecraftPreview.sprite = defaultPreview;
+                break;
+        }
     }
 
     public string GetSkin()
