@@ -2,13 +2,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class GameLevels : MonoBehaviour
 {
     public static GameLevels Instance { get; private set; }
 
-    private GameObject levelsPanel;
+    [SerializeField] private GameObject levelsPanel;
     [SerializeField] private List<TriviaBankSO> triviaBanks;
+    [SerializeField] private GameObject skinsPanel;
+
+    // skins panel fields
+    [SerializeField] private Image spacecraftPreview;
+    [SerializeField] private Sprite defaultPreview; // default = blue
+    [SerializeField] private Sprite redPreview;
+    [SerializeField] private Sprite greenPreview;
+
 
     void Awake()
     {
@@ -16,7 +25,13 @@ public class GameLevels : MonoBehaviour
         else Destroy(gameObject);
     }
 
+    void Start()
+    {
+        skinsPanel.SetActive(false); // skins panel is initially inactive
+    }
+
     private string level; // can be beginner, intermediate or advanced
+    private string skinColor; // red, blue or green
 
     public void SetLevel(string level)
     {
@@ -82,5 +97,37 @@ public class GameLevels : MonoBehaviour
         TriviaBankSO selectedBank = triviaBanks.Find(bank => bank.selectedBankName == level);
 
         return selectedBank;
+    }
+
+    public void PickSkin()
+    {
+        // Activate skins panel
+        levelsPanel.SetActive(false);
+        skinsPanel.SetActive(true);
+    }
+
+    public void SetSkin(string color)
+    {
+        this.skinColor = color;
+        switch(color)
+        {
+            case "red": spacecraftPreview.sprite = redPreview; 
+                break;
+            case "green":
+                spacecraftPreview.sprite = greenPreview;
+                break;
+            default:
+                spacecraftPreview.sprite = defaultPreview;
+                break;
+        }
+    }
+
+    public string GetSkin()
+    {
+        if (skinColor != null)
+        {
+            return skinColor;
+        }
+        return "blue"; // default color is blue
     }
 }
