@@ -20,6 +20,11 @@ public class GameLevels : MonoBehaviour
         this.level = level;
     }
 
+    public string GetLevel()
+    {
+        return level;
+    }
+
     // Returns asteroidSpawnTimeMin corresponding to level chosen by user.
     public float GetAsteroidSpawnTimeMin()
     {
