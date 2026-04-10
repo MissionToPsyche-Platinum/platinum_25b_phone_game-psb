@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58848e7835e6ac64b830abd0f7a94e24, type: 3}
+  m_Name: IntermediateTriviaBank
+  m_EditorClassIdentifier: Assembly-CSharp::TriviaBankSO
+  questions:
+  - question: How long is a day on the Psyche asteroid?
+    choices:
+    - About 24 hours
+    - About 13 hours
+    - About 4 hours
+    - About 7 hours
+    correctChoice: 3
+  - question: When will the spacecraft arrive at Psyche?
+    choices:
+    - August 2029
+    - February 2028
+    - December 2026
+    - January 2030
+    correctChoice: 1
+  - question: How long does it take for the Psyche asteroid to go around the sun?
+    choices:
+    - About 6 Earth months
+    - About 2 Earth years
+    - About 5 Earth years
+    - About 14 Earth years
+    correctChoice: 3
+  - question: What is the mapping duration of the spacecraft during its primary mission
+      at Psyche?
+    choices:
+    - About 12 months
+    - About 8 months
+    - About 26 months
+    - About 21 months
+    correctChoice: 3
+  - question: What makes the Psyche mission special?
+    choices:
+    - The first time we are travelling to an asteroid.
+    - The first time we are sending a spacecraft to study a metallic (M-type) asteroid.
+    - It is the first mission to build a colony on an asteroid.
+    - It is the last mission to a planet.
+    correctChoice: 2
+  - question: What type of propulsion system powers the Psyche spacecraft?
+    choices:
+    - Chemical rocket propulsion
+    - Nuclear propulsion
+    - Solar electric propulsion
+    - Gravity-assisted propulsion
+    correctChoice: 3
+  - question: "What propellant is used by Psyche\u2019s Hall-effect thrusters?"
+    choices:
+    - Xenon
+    - Hydrogen
+    - Helium
+    - Oxygen
+    correctChoice: 1
+  - question: How many thrusters does the Psyche spacecraft have?
+    choices:
+    - One
+    - Two
+    - Three
+    - Four
+    correctChoice: 4
+  - question: Which NASA center manages the Psyche mission?
+    choices:
+    - Johnson Space Center
+    - Jet Propulsion Laboratory
+    - Goddard Space Flight Center
+    - Ames Research Center
+    correctChoice: 2
+  - question: Which NASA program manages the launch operations for the Psyche mission?
+    choices:
+    - Artemis Program
+    - Commercial Crew Program
+    - Launch Services Program
+    - Discovery Program
+    correctChoice: 3
+  - question: 'Where can people find activities and opportunities related to the
+      Psyche mission? '
+    choices:
+    - "At the Psyche \u201CGet Involved\u201D webpage"
+    - The SpaceX website
+    - "NASA\u2019s engineering handbook"
+    - The Smithsonian website
+    correctChoice: 1
+  selectedBankName: intermediate

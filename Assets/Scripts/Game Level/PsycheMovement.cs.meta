@@ -3,7 +3,11 @@ guid: 61bf60dd0b9cc8b49b74287d41fd8858
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rb: {instanceID: 0}
+  - animator: {instanceID: 0}
+  - joystick: {instanceID: 0}
+  - redController: {fileID: 9100000, guid: ec7b77e581c8b2a41822b4a40a1b4ba7, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
