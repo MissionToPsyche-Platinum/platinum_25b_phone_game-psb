@@ -768,14 +768,14 @@ RectTransform:
   m_GameObject: {fileID: 395076550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.053, y: 1.3193761, z: 1.053}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 825959997}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -171.96, y: -185}
+  m_AnchoredPosition: {x: -183, y: -165}
   m_SizeDelta: {x: 46.823456, y: 55.984802}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &395076552
@@ -798,9 +798,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "This work was created in partial fulfillment of Arizona State University
-    Capstone Course \u201CCSE 486\u2033. The work is a result of the Psyche Student
-    Collaborations component of NASA\u2019s Psyche Mission (https://psyche.asu.edu).
+  m_text: "This work was created in partial fulfillment of The Pennsylvania State
+    University Capstone Course SWENG 480/481. The work is a result of the Psyche
+    Student Collaborations component of NASA\u2019s Psyche Mission (https://psyche.ssl.berkeley.edu).
     \u201CPsyche: A Journey to a Metal World\u201D [Contract number NNM16AA09C] is
     part of the NASA Discovery Program mission to solar system targets. Trade names
     and trademarks of ASU and NASA are used in this work for identification only.

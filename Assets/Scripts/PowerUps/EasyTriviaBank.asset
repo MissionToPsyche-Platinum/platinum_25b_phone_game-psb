@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58848e7835e6ac64b830abd0f7a94e24, type: 3}
+  m_Name: EasyTriviaBank
+  m_EditorClassIdentifier: Assembly-CSharp::TriviaBankSO
+  questions:
+  - question: When did the Psyche spacecraft launch?
+    choices:
+    - On Oct. 13, 2023
+    - On Aug. 10, 2025
+    - On April 1, 2023
+    - On Jan 1, 2026
+    correctChoice: 1
+  - question: Who is the Psyche asteroid named after?
+    choices:
+    - A psychic
+    - A Greek goddess
+    - A scientist
+    - An astronaut
+    correctChoice: 2
+  - question: When was the Psyche asteroid discovered?
+    choices:
+    - April 20, 1942
+    - January 16, 2009
+    - March 7, 1958
+    - March 17, 1852
+    correctChoice: 4
+  - question: Approximately what is the radius of Psyche (if it were a perfect sphere)?
+    choices:
+    - 68 miles
+    - 70 miles
+    - 225 miles
+    - 132 miles
+    correctChoice: 2
+  - question: What materials are believed to make up a majority of the Psyche asteroid?
+    choices:
+    - Iron and water
+    - Rock and metal
+    - Candy and butter
+    - Rock and ice
+    correctChoice: 2
+  - question: 'Who discovered the Psyche asteroid? '
+    choices:
+    - Italian astronomer Galileo Galilei
+    - American astronomer Henrietta Swan Leavitt
+    - Italian astronomer Annibale de Gasparis
+    - Polish astronomer Nicolaus Copernicus
+    correctChoice: 3
+  - question: Who is the Principal Investigator of the Psyche mission?
+    choices:
+    - Dr. Lindy Elkins-Tanton
+    - Dr. Cassie Bowman
+    - Neil Breen
+    - Dr. Mansour Javidan
+    correctChoice: 1
+  - question: According to NASA and the Psyche mission team, who is space exploration
+      for?
+    choices:
+    - Only Astronauts
+    - Only NASA employees
+    - Only professional scientists
+    - Everyone, including the public, students, and teachers
+    correctChoice: 4
+  - question: "Where is official news about the Psyche spacecraft\u2019s journey
+      posted?"
+    choices:
+    - On astronauts' social media accounts
+    - On the newspaper
+    - On the websites nasa.gov/psyche and psyche.ssl.berkeley.edu
+    - On Wikipedia
+    correctChoice: 3
+  - question: Which social media handle does the mission use to share updates?
+    choices:
+    - '@MissionToPsyche'
+    - '@Psyche'
+    - '@FollowTheMission'
+    - '@NASA'
+    correctChoice: 1
+  selectedBankName: beginner
