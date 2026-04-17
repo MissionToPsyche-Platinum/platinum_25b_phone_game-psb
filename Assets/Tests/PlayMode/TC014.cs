@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 
-public class GameSettingsTests
+public class TC014
 {
     [UnityTest]
     public IEnumerator LevelsPanel_Shows_LevelOptions_When_Activated()
