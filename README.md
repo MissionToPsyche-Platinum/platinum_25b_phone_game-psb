@@ -36,7 +36,7 @@ Beatriz Antunes, Destiny Cruz, Mustapha Boukhalfa, and Rami Yasin
    
 <br>The `Packages/` folder manages the project’s external dependencies using Unity’s Package Manager.
 
-**manifest.json**: Lists all packages used in the project (e.g., rendering, UI, input systems) and their versions.
+**manifest.json**: Lists all packages used in the project and their versions.
 
 **packages-lock.json**: Ensures consistent dependency versions across environments by locking package versions.
  </details>
