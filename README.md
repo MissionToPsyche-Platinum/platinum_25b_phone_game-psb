@@ -53,3 +53,27 @@ These settings control key systems such as:
 - Audio settings
 - Build and editor configuration
  </details>
+
+ ## How to Open 
+#### Step 1: Open Unity Hub. 
+Ensure that Unity Editor (version 6000.2.10f1) **with WebGL Build Support** is installed.
+ <img width="1919" height="1027" alt="screenshot1" src="https://github.com/user-attachments/assets/2a1164d1-f18a-40f5-b2df-a11c1fe5d123" />
+#### Step 2: Clone the Repository. 
+Clone the project to your local machine:
+```bash
+git clone https://github.com/MissionToPsyche-Platinum/platinum_25b_phone_game-psb.git
+```
+#### Step 3: Add the project to Unity Hub.
+In Unity Hub, click Add. From the drop-down, select **Add project from disk**. Select the project's root folder on your machine and add. 
+<img width="1914" height="936" alt="image" src="https://github.com/user-attachments/assets/55f79e1b-0a7e-439c-947f-3ff0cdf68b0a" />
+#### Step 4: Open the project.
+Click the project in Unity Hub and wait for Unity to import all assets (this may take a few minutes).
+<img width="1918" height="928" alt="screenshot-project" src="https://github.com/user-attachments/assets/19886f45-faa0-4caf-b274-e73f32c21347" />
+#### Step 5: View a game page.
+In Unity, in the Project view, navigate to `Assets/Scenes` to open the different game pages, like How To Play. 
+<img width="1919" height="1031" alt="image" src="https://github.com/user-attachments/assets/c3b0c75a-a61b-45af-bc2d-6930bef290d9" />
+
+
+
+
+ 
