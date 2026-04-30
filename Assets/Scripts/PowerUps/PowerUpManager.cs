@@ -36,22 +36,10 @@ public class PowerUpManager : MonoBehaviour
         if (item != 0)
             item = Random.Range(1, 3);
 
-        //Instantiate(powerUpList[item], 
-        //    spawnLocations[Random.Range(0, spawnLocations.Length)]);
-        //Instantiate( powerUpList[item], spawnLocations[Random.Range(0, spawnLocations.Length)].position, Quaternion.identity);
-
         Bounds b = gameplayBounds.bounds;
 
         float x = Random.Range(b.min.x + padding, b.max.x - padding);
         float y = Random.Range(b.min.y + padding, b.max.y - padding);
-
-        //        float x = Random.Range(
-        //-Camera.main.orthographicSize * Camera.main.aspect,
-        //     Camera.main.orthographicSize * Camera.main.aspect);
-
-        //        float y = Random.Range(
-        //            -Camera.main.orthographicSize,
-        //             Camera.main.orthographicSize);
 
         Vector3 spawnPos = new Vector3(x, y, 0);
 
