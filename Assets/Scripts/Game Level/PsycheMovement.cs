@@ -44,48 +44,8 @@ public class PsycheMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //BoundaryClamping();
-        //float verticalPos = Input.GetAxis("Vertical");
-        //float horizontalPos = Input.GetAxis("Horizontal");
-
-        // hold shift to walk
-        //      if (Input.GetKey(KeyCode.LeftShift))
-        //{
-        //	moveSpeed = walkSpeed;
-        //} 
-        //else 
-        //{
-        //	moveSpeed = runSpeed;
-        //}
-
-        //// movementPowerUp
-        //if(movementPowerUP > 0)
-        //{
-        //	walkSpeed = defaultWalkSpeed * 0.1f;
-        //	runSpeed = defaultRunSpeed * 0.1f;
-        //}
-        //else
-        //{
-        //	walkSpeed = defaultWalkSpeed;
-        //	runSpeed = defaultRunSpeed;
-        //}
-
-        //movementPowerUpTimer += Time.deltaTime;
-        //if(movementPowerUpTimer >= 1)
-        //{
-        //	movementPowerUP--;
-        //	movementPowerUpTimer = 0;
-        //}
-
-        //movement = new Vector2(horizontalPos,verticalPos) * moveSpeed;
-        //oldPosition = transform.position;
-
         BoundaryClamping();
 
-        // Choose walk or run speed
-        //if (Input.GetKey(KeyCode.LeftShift))  // Optional for testing on PC
-        //    moveSpeed = walkSpeed;
-        //else
         moveSpeed = runSpeed;
 
         // Power Up Speed Logic
@@ -114,17 +74,6 @@ public class PsycheMovement : MonoBehaviour
     // FixedUpdate is called every physics detection step  
     private void FixedUpdate()
     {
-        //if((Input.GetKey(KeyCode.W) ||
-        //	Input.GetKey(KeyCode.A) ||
-        //	Input.GetKey(KeyCode.S) ||
-        //	Input.GetKey(KeyCode.D) ||
-        //	Input.GetKey(KeyCode.UpArrow) ||
-        //	Input.GetKey(KeyCode.LeftArrow) ||
-        //	Input.GetKey(KeyCode.DownArrow) ||
-        //	Input.GetKey(KeyCode.RightArrow)
-        //	))
-        //	MovePsyche(movement);
-
         // Move based on joystick
         MovePsyche(movement);
     }
